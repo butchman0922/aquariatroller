@@ -5,7 +5,7 @@
 # For Arduino Duemilanove you must change the BAUD_RATE to 57600 bps.
 # Based on: http://playground.arduino.cc/Code/Netbeans
 
-COM_PORT = COM23
+COM_PORT = /dev/ttyACM0
 BAUD_RATE = 115200
 ARDUINO_VERSION = 105
 ARDUINO_BASE_DIR = /usr/share/arduino
@@ -21,23 +21,11 @@ ARDUINO_MODEL = atmega328p
 ARDUINO_PROGRAMMER = arduino
 ARDUINO_PINS_DIR = ${ARDUINO_BASE_DIR}/hardware/arduino/variants/standard
 
-# Arduino Mega 2560:
-#ARDUINO_MODEL = atmega2560
-#ARDUINO_PROGRAMMER = wiring
-#ARDUINO_PINS_DIR = ${ARDUINO_BASE_DIR}/hardware/arduino/variants/mega
-
-# Arduino Duemilanove:
-#BAUD_RATE = 57600
-
 # Include the libraries that you want. This are subfolders of "arduino-1.0.4/libraries" folder:
-INCLUDE_LIBS=SoftI2CMaster;
-#INCLUDE_LIBS=EEPROM;Esplora;Ethernet;Ethernet/utility;Firmata;GSMSHIELD;\
-LiquidCrystal;MemoryFree;RTClib;SD;SD/utility;Servo;SoftwareSerial;SPI;\
-Stepper;WiFi;WiFi/utility;Wire;Wire/utility;\
+INCLUDE_LIBS=DS1307RTC;Time;TimeAlarms;Wire;Wire/utility;
 
-# Select the Windows or Linux config of AVR_DUDE (upload utility):
-AVR_DUDE_WINDOWS = ${ARDUINO_BASE_DIR}/hardware/tools/avr/bin/avrdude -C ${ARDUINO_BASE_DIR}/hardware/tools/avr/etc/avrdude.conf	
-AVR_DUDE_LINUX = ${ARDUINO_BASE_DIR}/hardware/tools/avrdude -C ${ARDUINO_BASE_DIR}/hardware/tools/avrdude.conf
+# Linux config of AVR_DUDE (upload utility):
+AVR_DUDE_LINUX = /usr/bin/avrdude -C /etc/avrdude.conf
 AVR_DUDE = ${AVR_DUDE_LINUX}
 	
 #
