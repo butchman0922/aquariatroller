@@ -1,3 +1,5 @@
+#include <Arduino.h>
+#include "AquariaLCD.h"
 #include "AquariaTime.h"
 
 // Initalize our objects
@@ -29,6 +31,24 @@ void setup() {
         SunlightOff();
         MoonlightOn();
     }
+
+    char logo[] = "Aquariatroller";
+    char menu1[] = "Setup";
+
+
+    AquariaLCD lcd;
+    lcd.address = 40;
+    lcd.contrast = 45;
+    lcd.brightness = 6;
+
+    Wire.begin();
+    lcd.set_DisplayOn();
+    lcd.set_Contrast();
+    lcd.set_Brightness();
+    lcd.clear_Screen();
+    lcd.display_string(logo, 0x00);
+    lcd.display_string(menu1, 0x40);
+
 }
 
 time_t prevDisplay = 0; // when the digital clock was displayed
