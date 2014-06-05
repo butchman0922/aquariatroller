@@ -33,9 +33,24 @@ void setup() {
     lcd.clear_Screen();
     lcd.display_string(logo, 0x00);
     lcd.display_string(menu1, 0x40);
-    
+
     // Initialize the RTC
-    setRTC();
+    setAquariaTime();
+
+    // Set our alarms
+    Alarm.alarmRepeat(8, 30, 0, SunlightOn); // 8:30am every day
+    Alarm.alarmRepeat(21, 00, 0, SunlightOff); // 9:00pm every day 
+    Alarm.alarmRepeat(21, 01, 0, MoonlightOn); // 9:01pm every day
+    Alarm.alarmRepeat(8, 29, 0, MoonlightOff); // 8:29am every day
+
+    // Daylight check and initialize lamps
+    if (isDaytimeNow(8, 30, 0, 21, 01, 0)) {
+        MoonlightOff();
+        SunlightOn();
+    } else {
+        SunlightOff();
+        MoonlightOn();
+    }
 }
 
 time_t prevDisplay = 0; // when the digital clock was displayed
@@ -46,5 +61,6 @@ void loop() {
         prevDisplay = now();
         digitalClockDisplay();
     }
-
+    // check alarms every minute
+    Alarm.delay(60000);
 }

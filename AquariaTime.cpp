@@ -113,7 +113,7 @@ bool getDate(const char *str) {
     return true;
 }
 
-void setRTC() {
+void setAquariaTime() {
 
     // first check to see if the RTC is already set
     if (RTC.get == 0) {

@@ -47,7 +47,9 @@ void digitalClockDisplay(); // digital clock display of the time
 void printDigits(int digits); // utility for digital clock display: prints preceding colon and leading 0
 void printDigitsDate(int digits); // utility function for digital clock display: prints preceding ":" and leading 0
 
-void setRTC();
+// Set the Real Time Clock
+// and initialize the system time
+void setAquariaTime();
 
 #endif	/* AQUARIATIME_H */
 
