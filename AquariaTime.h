@@ -38,14 +38,16 @@ void SunlightOff();
 void MoonlightOn();
 void MoonlightOff();
 
-
-boolean isDaytimeNow(int dhr,int dmin, int dsec, int mhr,int mmin, int msec);
+// Functions for initalizing our lighting
+boolean isDaytimeNow(int dhr, int dmin, int dsec, int mhr, int mmin, int msec);
 time_t timeToSeconds(time_t H, time_t M, time_t S);
 
 //  Serial Clock Display functions
 void digitalClockDisplay(); // digital clock display of the time
 void printDigits(int digits); // utility for digital clock display: prints preceding colon and leading 0
 void printDigitsDate(int digits); // utility function for digital clock display: prints preceding ":" and leading 0
+
+void setRTC();
 
 #endif	/* AQUARIATIME_H */
 
