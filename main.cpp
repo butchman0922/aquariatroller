@@ -28,6 +28,7 @@ void setup() {
     lcd.brightness = 6;
 
     lcd.set_DisplayOn();
+    lcd.clear_Screen();
     lcd.set_Contrast();
     lcd.set_Brightness();
     lcd.clear_Screen();
